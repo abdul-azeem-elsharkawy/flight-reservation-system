@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 import database  # importing the database.py module
 import booking  # importing the booking.py module
+import reservations  # importing the reservations.py module
 import os
 
 # create the main application window
@@ -27,7 +28,7 @@ book_button.pack(pady=10)
 
 # button to view reservations
 # This button will be linked to the view reservations functionality later
-view_button = ttk.Button(root, text="View Reservations")
+view_button = ttk.Button(root, text="View Reservations", command=reservations.open_reservations_window)  # invoking the open_reservations_window function from reservations.py
 view_button.pack(pady=10)
 
 # This will keep the application running and responsive to user input
