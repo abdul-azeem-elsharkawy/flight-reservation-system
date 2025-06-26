@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 import database  # importing the database.py module
+import booking  # importing the booking.py module
 import os
 
 # create the main application window
@@ -21,7 +22,7 @@ title_label.pack(pady=30)
 
 # button to book a flight
 # This button will be linked to the booking functionality later
-book_button = ttk.Button(root, text="Book Flight")
+book_button = ttk.Button(root, text="Book Flight", command=booking.open_booking_window)  # invoking the open_booking_window function from booking.py
 book_button.pack(pady=10)
 
 # button to view reservations
