@@ -1,0 +1,26 @@
+import tkinter as tk
+from tkinter import ttk
+import database  # importing the database.py module
+
+# create the main application window
+root = tk.Tk()
+root.title("Flight Reservation System")
+root.geometry("400x300")  # window size
+root.resizable(False, False)  # prevent resizing
+
+# This label will be used to display the title of the application
+title_label = ttk.Label(root, text="Welcome to Flight Reservation System", font=("Helvetica", 14, "bold"))
+title_label.pack(pady=30)
+
+# button to book a flight
+# This button will be linked to the booking functionality later
+book_button = ttk.Button(root, text="Book Flight")
+book_button.pack(pady=10)
+
+# button to view reservations
+# This button will be linked to the view reservations functionality later
+view_button = ttk.Button(root, text="View Reservations")
+view_button.pack(pady=10)
+
+# This will keep the application running and responsive to user input
+root.mainloop()
