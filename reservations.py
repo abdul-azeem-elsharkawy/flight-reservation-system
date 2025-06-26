@@ -22,7 +22,7 @@ def open_reservations_window():
 
     # Create a Treeview widget to display the reservations in form of a table
     columns = ("id", "name", "flight_number", "departure", "destination", "date", "seat_number")
-    tree = ttk.Treeview(window, columns=columns, show="headings")
+    tree = ttk.Treeview(window, columns=columns, show="headings")  # show="headings" means we only show our columns
 
     # Set up the headings and columns for the Treeview
     for col in columns:
