@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk, messagebox  # messagebox for message boxes like success and failed
 import sqlite3
+import os
 
 # create a new window for booking flights
 # we will invoke this function when the user clicks on the "Book Flight" button
@@ -10,6 +11,11 @@ def open_booking_window():
     booking_win.geometry("400x400")
     booking_win.resizable(False, False)
     booking_win.configure(bg="#f9fbfc")
+
+    # add an icon to the window
+    if os.path.exists("airplane-ticket (icon).ico"):
+        # If the icon file exists, set it as the window icon
+        booking_win.iconbitmap("airplane-ticket (icon).ico")
 
     # Fields for flight booking that the user needs to fill
     fields = {
