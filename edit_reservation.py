@@ -34,15 +34,15 @@ def open_edit_window(data, refresh_callback):
             return
 
         try:
-            conn = sqlite3.connect("flights.db")
-            cursor = conn.cursor()
+            connect = sqlite3.connect("flights.db")
+            cursor = connect.cursor()
             cursor.execute("""
                 UPDATE reservations
                 SET name = ?, flight_number = ?, departure = ?, destination = ?, date = ?, seat_number = ?
                 WHERE id = ?
             """, (*new_data, data[0]))
-            conn.commit()
-            conn.close()
+            connect.commit()
+            connect.close()
             messagebox.showinfo("Success", "Reservation updated successfully!")
             edit_win.destroy()
             refresh_callback()  # إعادة تحميل البيانات من القاعدة
