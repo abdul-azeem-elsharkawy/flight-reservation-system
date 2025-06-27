@@ -43,6 +43,10 @@ def open_edit_window(data, refresh_callback):
             messagebox.showerror("Error", "Please fill in all fields.")
             return
 
+        confirm = tk.messagebox.askyesno("Confirm Update", "Are you sure you want to save the new data?")
+        if not confirm:
+            return
+
         try:
             connect = sqlite3.connect("flights.db")
             cursor = connect.cursor()
