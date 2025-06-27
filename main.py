@@ -66,7 +66,7 @@ def show_about():
 
 # function to open GitHub repository
 def open_github():
-    webbrowser.open("https://github.com/abdul-azeem-elsharkawy")
+    webbrowser.open("https://github.com/abdul-azeem-elsharkawy/flight-reservation-system")
 
 # This will keep the application running and responsive to user input
 root.mainloop()
