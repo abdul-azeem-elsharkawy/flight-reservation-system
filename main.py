@@ -31,5 +31,13 @@ book_button.pack(pady=10)
 view_button = ttk.Button(root, text="View Reservations", command=reservations.open_reservations_window)  # invoking the open_reservations_window function from reservations.py
 view_button.pack(pady=10)
 
+# Confirmation dialog for closing the application
+# This function will be called when the user tries to close the application window
+def on_closing():
+    if tk.messagebox.askokcancel("Quit", "Do you really want to exit the application?"):
+        root.destroy()
+
+root.protocol("WM_DELETE_WINDOW", on_closing)
+
 # This will keep the application running and responsive to user input
 root.mainloop()
