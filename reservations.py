@@ -34,9 +34,16 @@ def open_reservations_window():
 
     # Add Edit Selected button to edit the selected reservation
     # This button will open the edit_reservation window with the selected reservation data
-    edit_button = ttk.Button(window, text="Edit Selected", command=open_edit)
+    edit_button = ttk.Button(window, text="Edit Selected", command=lambda: open_edit())
     edit_button.pack(pady=5)
 
+    # add Delete Selected button to delete the selected reservation
+    # This button will delete the selected reservation from the database and refresh the Treeview
+    delete_button = ttk.Button(window, text="Delete Selected", command=lambda: delete_selected())
+    delete_button.pack(pady=5)
+
+    # Function to open the edit window with the selected reservation data
+    # This function will be called when the user clicks on the Edit Selected button
     def open_edit():
         selected = tree.focus()  # Get the id of currently selected reservation in the Treeview
         if not selected:
@@ -46,7 +53,6 @@ def open_reservations_window():
         data = tree.item(selected)["values"] # Get the data of the selected reservation
         if data:
             edit_reservation.open_edit_window(data, refresh_tree) 
-
 
     # Load data from the database and insert it into the Treeview
     try:
@@ -81,3 +87,32 @@ def open_reservations_window():
 
         except Exception as e:
             tk.messagebox.showerror("Error", f"Failed to reload data: {e}")
+
+    # function to delete the selected reservation from the database
+    # This function will be called when the user clicks on the Delete Selected button
+    def delete_selected():
+        selected = tree.focus()
+        if not selected:
+            tk.messagebox.showerror("No Selection", "Please select a reservation to delete.")
+            return
+
+        data = tree.item(selected)["values"]
+        if not data:
+            return
+
+        confirm = tk.messagebox.askyesno("Confirm Deletion", f"Are you sure you want to delete reservation for '{data[1]}'?")
+        if not confirm:
+            return
+
+        try:
+            connect = sqlite3.connect("flights.db")
+            cursor = connect.cursor()
+            cursor.execute("DELETE FROM reservations WHERE id = ?", (data[0],))
+            connect.commit()
+            connect.close()
+
+            tk.messagebox.showinfo("Deleted", "Reservation deleted successfully.")
+            refresh_tree()
+
+        except Exception as e:
+            tk.messagebox.showerror("Database Error", f"An error occurred while deleting:\n{e}")
