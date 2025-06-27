@@ -34,17 +34,18 @@ def open_reservations_window():
 
     # Add Edit Selected button to edit the selected reservation
     # This button will open the edit_reservation window with the selected reservation data
-    edit_button = ttk.Button(window, text="Edit Selected", command=lambda: open_edit())
+    edit_button = ttk.Button(window, text="Edit Selected", command=open_edit)
     edit_button.pack(pady=5)
 
     def open_edit():
-        selected = tree.focus()
+        selected = tree.focus()  # Get the id of currently selected reservation in the Treeview
         if not selected:
             tk.messagebox.showerror("No Selection", "Please select a reservation to edit.")
             return
-        data = tree.item(selected)["values"]
+        
+        data = tree.item(selected)["values"] # Get the data of the selected reservation
         if data:
-            edit_reservation.open_edit_window(data, refresh_tree)
+            edit_reservation.open_edit_window(data, refresh_tree) 
 
 
     # Load data from the database and insert it into the Treeview
@@ -62,10 +63,13 @@ def open_reservations_window():
         tk.messagebox.showerror("Error", f"An error occurred while loading data:\n{e}")
     
       
-
+    # Refresh function to reload the data from the database
+    # This function will be called when the user edits a reservation
     def refresh_tree():
         for row in tree.get_children():
-            tree.delete(row)
+            tree.delete(row)   # Clear the current data in the Treeview
+
+        # Fetch new data from the database
         try:
             connect = sqlite3.connect("flights.db")
             cursor = connect.cursor()
@@ -73,6 +77,7 @@ def open_reservations_window():
             rows = cursor.fetchall()
             connect.close()
             for row in rows:
-                tree.insert("", "end", values=row)
+                tree.insert("", "end", values=row)  # Insert the new data into the Treeview
+
         except Exception as e:
             tk.messagebox.showerror("Error", f"Failed to reload data: {e}")
