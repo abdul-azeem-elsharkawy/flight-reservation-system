@@ -72,6 +72,7 @@ flight-reservation-system/
 ├── flights.db                   # Local database (auto-created)
 ├── airplane-ticket (icon).ico   # Application icon
 ├── README.md                    # Project documentation
+├── LICENSE                      # Project License
 ```
 
 ---
