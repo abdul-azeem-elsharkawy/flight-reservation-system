@@ -84,13 +84,6 @@ flight-reservation-system/
 
 ---
 
-## 👤 Author
-
-**Abdul-Azeem Lotfy El-Sharkawy**
-Biomedical Engineering Student | Python Developer | Data Science & AI Learner
-
----
-
 ## 📄 License
 
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
