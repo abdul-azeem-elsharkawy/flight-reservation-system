@@ -7,8 +7,11 @@ A simple and elegant desktop application built with **Python** and **Tkinter**, 
 ## 📸 Screenshots
 
 > ![Home window](https://iili.io/FRFeEjn.png)
+
 > ![Book a Flight window](https://iili.io/FRFeGQs.png)
+
 > ![Reservation List window](https://iili.io/FRFeVCG.png)
+
 > ![About window](https://iili.io/FRFeWGf.png)
 
 ---
