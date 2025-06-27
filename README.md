@@ -39,17 +39,17 @@ A simple and elegant desktop application built with **Python** and **Tkinter**, 
     ```bash
    git clone https://github.com/abdul-azeem-elsharkawy/flight-reservation-system
    cd flight-reservation-system
-````
+    ````
 
 2. Install required dependencies (if any):
     ```bash
    *(Standard Python installation is enough)*
-````
+    ````
 
 3. Run the main file:
     ```bash
    python main.py
-````
+    ````
 
 ---
 
