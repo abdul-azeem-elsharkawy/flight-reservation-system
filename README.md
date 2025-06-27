@@ -6,7 +6,7 @@ A simple and elegant desktop application built with **Python** and **Tkinter**, 
 
 ## 📸 Screenshots
 
-> *(Add screenshots here if you'd like to showcase the UI)*
+> ![alt text](https://ibb.co/sdDnDpz6)
 
 ---
 
